@@ -1,0 +1,14 @@
+name: New merge PR
+run-name: New PR merge
+
+on:
+  pull_request:
+    types:
+      - closed
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    name: ${{ github.event.pull_request.title }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
